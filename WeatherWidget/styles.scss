@@ -1,0 +1,92 @@
+.WeatherWidget {
+  font-family: sans-serif;
+  
+  color: white;
+  background-color: rgba(black, 0.5);
+  
+  filter: drop-shadow(0 0 7px rgba(black, 0.5));
+  padding: 20px;
+  border-radius: 10px;
+  
+  -webkit-user-select: none;
+  -webkit-app-region: drag;
+  
+  .Header {
+    display: flex;
+    align-items: center;
+    
+    .ConditionEmoji {
+      width: 50px;
+      height: 50px;
+    }
+    
+    .ConditionDesc {
+      margin-left: 25px;
+      margin-right: auto;
+      
+      .Condition {
+        font-size: 1.5em;
+        font-weight: bolder;
+      }
+      
+      .UpdateTime {
+        color: rgba(white, 0.8);
+      }
+    }
+    
+    .Conditions {
+      .Temperature {
+        .Primary {
+          font-size: 1.5em;
+          font-weight: bolder;
+          
+          margin-right: 10px;
+        }
+        
+        .Secondary {
+          color: rgba(white, 0.8);
+        }
+      }
+    }
+  }
+  
+  .Forecast {
+    display: flex;
+    
+    .Item {
+      display: flex;
+      flex-direction: column;
+      
+      align-items: center;
+      justify-content: center;
+
+      .Icon {
+        width: 75px;
+      }
+      
+      > .Entry {
+        &.Day {
+          font-weight: bolder;
+          font-size: 1.1em;
+        }
+        
+        &.Condition {
+          margin: 5px 0;
+        }
+        
+        &.Temperature {
+          > span {
+            font-weight: bolder;
+            
+            &:First-Child { color: rgba(white, 0.75); }
+            //&:Last-Child { color: #ffc640; }
+          }
+        }
+      }
+      
+      &:Not(:First-Child):Not(:Last-Child) {
+        margin: 0 auto;
+      }
+    }
+  }
+}
