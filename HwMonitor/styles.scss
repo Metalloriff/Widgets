@@ -1,0 +1,72 @@
+.HwMonitorWidget {
+  font-family: sans-serif;
+
+  color: white;
+  background-color: #434C5E;
+
+  filter: drop-shadow(0 0 7px rgba(black, 0.5));
+  padding: 20px;
+  border-radius: 10px;
+
+  -webkit-user-select: none;
+  -webkit-app-region: drag;
+  
+  display: flex;
+  flex-direction: column;
+  
+  .Item {
+    .Title {
+      font-weight: bolder;
+      margin-bottom: 5px;
+      margin-right: auto;
+    }
+
+    .Temp {
+      font-weight: bolder;
+    }
+    
+    .Label {
+      margin-right: 10px;
+      font-weight: bolder;
+    }
+    
+    .BarContainer {
+      position: relative;
+      flex-grow: 1;
+      
+      height: 10px;
+      
+      overflow: hidden;
+      border-radius: 100px;
+      
+      &::Before {
+        content: "";
+        display: block;
+        
+        position: absolute;
+        top: 0; left: 0; bottom: 0; right: 0;
+        
+        background-color: currentColor;
+        
+        opacity: 0.25;
+      }
+      
+      .Bar {
+        height: 100%;
+        background-color: currentColor;
+        
+        z-index: 2;
+      }
+    }
+    
+    &:Not(:Last-Child) {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.Flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

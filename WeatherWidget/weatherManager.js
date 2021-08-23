@@ -7,23 +7,16 @@ module.exports = new class WeatherManager {
     apiKey = "603ce1cc395846caa7002812212308";
     
     getIcon({ condition }, day) {
-        const dir = path.join(__dirname, "Icons");
-        const time = day === 1 ? "day" : "night";
-        const conditionSpaghetti = condition.text.toLowerCase().replace("possible", "").trim();
+        return "https://" + condition.icon.slice(2).replace("64x64", "128x128");
         
-        return "file:///" + (fs.existsSync(path.join(dir, `${conditionSpaghetti} ${time}`))
-            ? path.join(dir, `${conditionSpaghetti} ${time}`)
-            : path.join(dir, conditionSpaghetti)) + ".png";
-        // return "https://" + condition.icon.replace("64x64", "128x128").slice(2);
-        
-        // Maybe later I'll write some twemoji icons
-        // const twemoji = code => `https://twemoji.maxcdn.com/v/13.1.0/svg/${code}.svg`;
-        // const day = weather.current.is_day === 1;
+        // Too lazy to fix this
+        // const dir = path.join(__dirname, "Icons");
+        // const time = day === 1 ? "day" : "night";
+        // const conditionSpaghetti = condition.text.toLowerCase().replace("possible", "").trim();
         //
-        // switch (weather.current.condition.text.toUpperCase()) {
-        //     default: return weather.current.condition.icon;
-        //     case "LIGHT RAIN": return twemoji("1f326");
-        // }
+        // return "file:///" + (fs.existsSync(path.join(dir, `${conditionSpaghetti} ${time}`))
+        //     ? path.join(dir, `${conditionSpaghetti} ${time}`)
+        //     : path.join(dir, conditionSpaghetti)) + ".png";
     }
 
     /**
